@@ -11,18 +11,12 @@ int main()
 		for (int &it : a)
 			cin >> it;
 		int ans = 0;
-		if ((a[0] + a[1] + a[2]) % 2 == 0)
-		{
-			while (a[1] && a[2])
-			{
-				a[1]--;
-				a[2]--;
-				sort(a, a + 3);
-				ans++;
-			}
-		}
-		else
+		if ((a[0] + a[1] + a[2]) % 2 != 0)
 			ans = -1;
+		else if((a[0]+a[1])<= a[2])
+			ans = a[0]+a[1];
+		else 
+			ans = (a[0]+a[1]+a[2])/2;
 
 		cout << ans << endl;
 	}
