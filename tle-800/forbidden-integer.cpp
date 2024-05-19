@@ -21,10 +21,12 @@ int main()
 			cout << "NO" << endl;
 		else
 		{
+			// 2 or 3 se koi sa bhi number ban jaega, bss odd ke lie starting mai 3 chahiye
 			cout << "YES" << endl;
 			cout << n / 2 << endl;
 			if (n & 1 == 1) {
                 cout << 3 << " ";
+				n -= 3;
             }
             for (int i = 0; i < n / 2; i++) {
                 cout << 2 << " ";
