@@ -6,25 +6,30 @@ int main() {
 	cin >> t;
 	while(t--) {
 		int n;
-		cin >> n;
 		string s;
-		cin >> s;
+		cin >> n >> s;
+		
+		vector<char> v(26, 0);
 
-		unordered_map<char, int>mpp;
+		for(int i=0; i<s.size(); i++)
+			v[int(s[i]) - 'a']++;
+
 		string aux;
-		string ans;
-
-		for(int i=0; i<s.size(); i++) {
-			if(mpp.find(s[i]) == mpp.end())
-				aux+= s[i];
-			mpp[s[i]]++;
+		for(int i=0; i<26; i++) {
+			if(v[i] > 0)
+				aux += char(i + 'a');
 		}
 
-		sort(aux.begin(), aux.end());
+		int m = aux.size();
+		unordered_map<char, char> mpp;
+		for(int i=0; i<=m/2; i++) {
+			mpp[aux[i]] = aux[m-1-i];
+			mpp[aux[m-1-i]] = aux[i];
+		}
 
+		string ans;
 		for(int i=0; i<s.size(); i++) {
-			int idx = aux.find(s[i]);
-			ans += aux[aux.size()-1-idx];
+			ans += mpp[s[i]];
 		}
 
 		cout << ans << endl;
