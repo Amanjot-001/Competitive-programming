@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class We_Need_the_Zero {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int t = in.nextInt();
+
+		while(t-->0) {
+			int n = in.nextInt();
+			int[] arr = new int[n];
+
+			for(int i=0; i<n; i++) {
+				int x = in.nextInt();
+				arr[i] = x;
+			}
+
+			int xor = 0;
+			for(int i=0; i<n; i++) {
+				xor ^= arr[i];
+			}
+
+			if((n & 1) == 0) {
+				if(xor == 0)
+					System.out.println(0); // random kuch bhi
+				else
+					System.out.println(-1);
+			}
+			else {
+				System.out.println(xor);
+			}
+		}
+		in.close();
+	}
+}
