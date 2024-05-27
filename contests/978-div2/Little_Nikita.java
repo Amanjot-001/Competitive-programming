@@ -14,5 +14,6 @@ public class Little_Nikita {
 			else
 				System.out.println("NO");
 		}
+		in.close();
 	}
 }
