@@ -22,7 +22,7 @@ int main() {
 			continue;
 		}
 
-		long long l = 0, r = 1e18, ans = 0;
+		long long l = 0, r = 1e12, ans = 0;
 		while(l <= r) {
 			long long mid = (l+r) >> 1;
 			long long sum = 0;
