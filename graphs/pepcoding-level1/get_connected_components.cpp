@@ -34,15 +34,6 @@ class Graph {
 public:
 	vector<vector<Edge>> adjList;
 	int n;
-	string spath="";
-	int spathwt = INT_MAX;
-	string lpath="";
-	int lpathwt = INT_MIN;
-	string cpath="";
-	int cpathwt = INT_MAX;
-	string fpath = "";
-	int fpathwt = INT_MIN;
-    priority_queue<Pair, vector<Pair>, greater<Pair>> pq;
 
 	Graph(int n) {
 		this->n = n;
