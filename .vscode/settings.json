@@ -2,7 +2,8 @@
 	"files.associations": {
 		"*.embeddedhtml": "html",
 		"*.ejs": "html",
-		"iostream": "cpp"
+		"iostream": "cpp",
+		"random": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled"
 }
