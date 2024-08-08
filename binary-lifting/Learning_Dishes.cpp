@@ -6,6 +6,27 @@ int n;
 vector<int> value, parent;
 vector<vector<int>> child;
 vector<pair<int, int>> dp;
+vector<vector<int>> table;
+int MAX;
+
+void setBit() {
+	MAX=0;
+	while((1<<MAX) <= n)
+		MAX++;
+	MAX--;
+}
+
+void build() {
+	table.resize(MAX+1, vector<int>(n+1));
+	table[0] = parent;
+	for(int i=1; i<=MAX; i++) {
+		for(int j=1; j<=n; j++) {
+			int p = table[i-1][j];
+			if(p!=0)
+				table[i][j] = table[i-1][p];
+		}
+	}
+}
 
 void dfs(int node, int max, int cnt) {
 	if(value[node] > max) {
@@ -20,14 +41,25 @@ void dfs(int node, int max, int cnt) {
 }
 
 int cal(int u, int w) {
+	if(dp[u].first <= w)
+		return 0;
 	int curr = u;
-	while(true) {
-		int p = parent[curr];
-		curr = p;	
-		if(dp[p].first <= w)
-			break;
+	
+	// while(true) {
+	// 	int p = parent[curr];
+	// 	curr = p;	
+	// 	if(dp[p].first <= w)
+	// 		break;
+	// }
+
+	for(int i=MAX; i>=0; i--) {
+		int p = table[i][curr];
+		if(dp[p].first > w) {
+			curr = p;
+		}
 	}
 
+	curr = parent[curr];
 	return dp[u].second - dp[curr].second;
 }
 
@@ -43,6 +75,9 @@ void solve() {
 		cin >> parent[i];
 		child[parent[i]].push_back(i);
 	}
+
+	setBit();
+	build();
 
 	dp.resize(n+1);
 	dp[0]={0, 0};
