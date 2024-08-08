@@ -41,16 +41,7 @@ void dfs(int node, int max, int cnt) {
 }
 
 int cal(int u, int w) {
-	if(dp[u].first <= w)
-		return 0;
 	int curr = u;
-	
-	// while(true) {
-	// 	int p = parent[curr];
-	// 	curr = p;	
-	// 	if(dp[p].first <= w)
-	// 		break;
-	// }
 
 	for(int i=MAX; i>=0; i--) {
 		int p = table[i][curr];
@@ -91,7 +82,11 @@ void solve() {
 		cin >> u >> w;
 		u = pr ^ u;
 		w = pr ^ w;
-		pr = cal(u, w);
+
+		if(dp[u].first <= w)
+			pr=0;
+		else 
+			pr = cal(u, w);
 		cout << pr << '\n';
 	}
 }
