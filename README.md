@@ -1,1 +1,1 @@
-# Practicing codeforces questions
+# Practicing cp questions on various platforms
