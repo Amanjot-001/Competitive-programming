@@ -3,7 +3,9 @@
 		"*.embeddedhtml": "html",
 		"*.ejs": "html",
 		"iostream": "cpp",
-		"random": "cpp"
+		"random": "cpp",
+		"ostream": "cpp",
+		"vector": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "enabled"
 }
