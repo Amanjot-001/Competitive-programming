@@ -21,26 +21,29 @@ int main() {
     vector<vector<int>> dir = {{0, -1}, {-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}};
 
     int ans = 0;
+	string target = "XMAS";
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             char c = v[i][j];
 
-            for (auto d : dir) {
-                string temp(1, c);
+            if (c == 'X') {
+                for (auto d : dir) {
+                    string temp(1, c);
 
-                for (int k = 1; k <= 3; k++) {
-                    int rd = i + k * d[0];
-                    int cd = j + k * d[1];
+                    for (int k = 1; k <= 3; k++) {
+                        int rd = i + k * d[0];
+                        int cd = j + k * d[1];
 
-                    if (rd < 0 || cd < 0 || rd >= n || cd >= m) {
-                        break;
+                        if (rd < 0 || cd < 0 || rd >= n || cd >= m || v[rd][cd] != target[k]) {
+                            break;
+                        }
+
+                        temp += v[rd][cd];
                     }
 
-                    temp += v[rd][cd];
+                    if (temp == "XMAS") ans++;
                 }
-
-                if (temp == "XMAS") ans++;
             }
         }
     }
