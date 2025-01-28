@@ -23,16 +23,14 @@ int main() {
 		if(cnt[a[j]] == 1)
 			num++;
 		else {
-			ans = max(ans, num);
 			while(cnt[a[j]] != 1) {
 				cnt[a[i]]--;
 				i++;
 			}
 			num = j-i+1;
 		}
+		ans = max(ans, num);
 	}
-
-	ans = max(ans, num);
 
 	cout << ans << endl;
 
