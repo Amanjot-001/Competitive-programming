@@ -2,6 +2,10 @@
 using namespace std;
 #define ll long long
 
+// editorial ni smj aya ache se
+// so instead maintained a separate prefix sums for both categories
+// and calculated accordingly
+
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
