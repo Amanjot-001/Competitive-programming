@@ -27,10 +27,8 @@ int main() {
 
 		ll diff = 0;
 		for(int i=1; i<=n; i++) {
-			int curr=0;
 			for(int j=1; j<=m; j++) {
 				if(s[i-1][j-1] == '1') {
-					curr++;
 					diff += (ll)a[i][j];
 				} else {
 					diff -= (ll)a[i][j];
